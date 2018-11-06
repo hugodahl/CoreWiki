@@ -1,5 +1,6 @@
 ﻿using CoreWiki.Data.EntityFramework.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
 using NodaTime;
 using System;
 using System.Threading;
@@ -70,5 +71,17 @@ namespace CoreWiki.Data.EntityFramework
 
 		}
 
+	}
+
+	public class DbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
+	{
+		public ApplicationDbContext CreateDbContext(string[] args)
+		{
+			var optionsBuilder = new DbContextOptionsBuilder<ApplicationDbContext>();
+			optionsBuilder.UseSqlite("DataSource =../CoreWiki/App_Data/wikiContent.db");
+
+			return new ApplicationDbContext(optionsBuilder.Options);
+
+		}
 	}
 }
