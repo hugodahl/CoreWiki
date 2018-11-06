@@ -1,4 +1,5 @@
 ﻿using System;
+using CoreWiki.Core;
 using NodaTime;
 
 namespace CoreWiki.Application.Articles.Reading.Dto
@@ -18,5 +19,8 @@ namespace CoreWiki.Application.Articles.Reading.Dto
 		public Guid AuthorId { get; set; }
 		public SlugHistoryDto[] History { get; set; }
 		public string AuthorName { get; set; }
+
+		public ArticleProperties ArticleProperties { get; set; }
+
 	}
 }

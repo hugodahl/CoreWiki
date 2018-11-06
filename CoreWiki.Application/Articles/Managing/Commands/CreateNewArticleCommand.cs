@@ -1,5 +1,6 @@
 ﻿using System;
 using CoreWiki.Application.Common;
+using CoreWiki.Core;
 using MediatR;
 
 namespace CoreWiki.Application.Articles.Managing.Commands
@@ -14,6 +15,8 @@ namespace CoreWiki.Application.Articles.Managing.Commands
 		public Guid AuthorId { get; set; }
 
 		public string AuthorName { get; set; }
+
+		public ArticleProperties ArticleProperties { get; set; }
 
 	}
 

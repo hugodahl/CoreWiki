@@ -1,4 +1,5 @@
-﻿using CoreWiki.Core.Domain;
+﻿using CoreWiki.Core;
+using CoreWiki.Core.Domain;
 using NodaTime;
 using NodaTime.Extensions;
 using System;
@@ -67,6 +68,9 @@ namespace CoreWiki.Data.EntityFramework.Models
 
 		public int ViewCount { get; set; } = 0;
 
+		[EnumDataType(typeof(ArticleProperties))]
+		public ArticleProperties ArticleProperties { get; set; }
+
 		public static ArticleDAO FromDomain(Article article) {
 
 			return new ArticleDAO
@@ -92,7 +96,7 @@ namespace CoreWiki.Data.EntityFramework.Models
 
 			return new Core.Domain.Article
 			{
-
+				ArticleProperties = ArticleProperties,
 				AuthorId = AuthorId,
 				AuthorName = AuthorName,
 				Comments = Comments.Select(c => c.ToDomain()).ToHashSet(),

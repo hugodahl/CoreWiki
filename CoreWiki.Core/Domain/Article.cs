@@ -40,6 +40,8 @@ namespace CoreWiki.Core.Domain
 
 		public bool IsHomePage => Id == 1;
 
+		public ArticleProperties ArticleProperties { get; set; }
+
 		public virtual ICollection<Comment> Comments { get; set; }
 
 		public virtual ICollection<ArticleHistory> History { get; set; }

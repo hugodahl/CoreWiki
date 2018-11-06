@@ -11,7 +11,6 @@ namespace CoreWiki.Application.Articles.Managing.Commands
 {
 	public class CreateNewArticleCommandHandler
 		: IRequestHandler<CreateNewArticleCommand, CommandResult>
-		, IRequestHandler<CreateSkeletonArticleCommand, CommandResult>
 	{
 		private readonly IArticleManagementService _articleManagementService;
 		private readonly IMapper _mapper;
@@ -26,11 +25,6 @@ namespace CoreWiki.Application.Articles.Managing.Commands
 		{
 			return await HandleCreateArticle(request, cancellationToken);
 		}
-
-        public async Task<CommandResult> Handle(CreateSkeletonArticleCommand request, CancellationToken cancellationToken)
-        {
-            return await HandleCreateArticle(request, cancellationToken);
-        }
 
 		private async Task<CommandResult> HandleCreateArticle<T>(T request, CancellationToken cancellationToken) {
 
